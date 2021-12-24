@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
+  <script src="./jquery-3.6.0.min.js"></script>
+  <style>
+    /* 字體更改 */
+    body{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+      font-family: 'Amatic SC', cursive,'Saira', sans-serif; 
+
+    }
+    #container{
+      overflow: hidden;
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      background: url('./images/space-5720414_1920.jpg') no-repeat center/cover;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+    }
+    .table {
+      background: url('./table.png') no-repeat center/cover;
+      width: 300px;
+      height: 415px;
+      margin-left: 20px;
+      margin-top: 200px;
+    }
+    .top{
+      background: rgba(0,0,0,.5);
+      width: 100%;
+      height: 100vh;
+    }
+    .time{
+      font-size: 4rem;
+      color:white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+    
+    .label{
+      width: 50%;
+      height: 100px;
+      float: right;
+    }
+    .label p{
+      font-size: 2.5rem;
+      padding: 0 2rem;
+      line-height: 100px;
+      margin: auto;
+      color: white;
+      font-weight: 800;
+      letter-spacing: .8rem;
+
+    }
+    .bottom{
+      background: rgba(0,0,0,.5);
+    }
+    
+    button{
+      width: 300px;
+      height: 124px;
+      background: url('./button2.png') no-repeat center/cover;
+      border: none;
+      margin: 20px;
+      position: relative;
+      overflow: hidden;
+      
+    }
+    .text{
+      font-size: 5rem;
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-48%,-50%);
+      letter-spacing: 15px;
+      font-weight: bold;
+      color:rgba(178,266,266);
+      text-shadow: 2px 2px 4px  rgba(178,266,266,.5);
+      font-family: 'Amatic SC', cursive,'Saira', sans-serif; 
+    }
+    .text1{
+      font-size: 5rem;
+      letter-spacing: 15px;
+      font-weight: bold;
+      color:rgb(220, 243, 243);
+      text-shadow: 2px 2px 4px  rgba(178,266,266,.5);
+    }
+  
+    .letters{
+      font-size: 3rem;
+      color: white;
+      font-weight: 600;
+      position: absolute;
+      background:  rgba(178,266,266,.1);
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      text-align: center;
+      box-shadow: 1px 1px 4px  rgba(178,266,266,.4);
+      font-family:'Saira', sans-serif;
+    }
+    .label-socre{
+      background: url('./button4.png') no-repeat center/cover;
+      width: 395px;
+      height: 251px;
+      position: absolute;
+      right: 100px;
+      bottom: 400px;
+    }
+    .score{
+      top:25%
+    }
+    #score{
+        top:160%
+      }
+    table{
+      letter-spacing: 3px;
+      color: white;
+      width: 100%;
+      border-collapse: none;
+      border-spacing: 0;
+      padding: 10px;
+
+    }
+    table tr td{
+      font-size: 2rem;
+      text-align: center;
+      height: 59px;
+    }
+    table tr:nth-child(even) td{
+      background: rgba(179, 238, 250, 0.3);
+    }
+    .rank{
+      font-size: 3.5rem;
+      letter-spacing: 5px;
+      font-weight: 500;
+    }
+    #progress {
+      width: 50%;
+      height: 30px;
+      background-color: grey;
+      margin-left: 5rem;
+      border-radius: 20px;
+    }
+
+    #bar {
+      width: 100%;
+      height: 30px;
+      background-color: #bdf1f1;
+      box-shadow: 5px 5px 10px rgba(178,266,266,.4);
+      border-radius: 20px;
+    }
+    .neon {
+      animation: neon 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes neon {
+      from {
+        text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px  #fff, 0 0 10px #467446,
+        0 0 30px #81b4b4,  0 0 50px #81b4b4;
+      }
+      to {
+        text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff, 0 0 10px #81b4b4,
+        0 0 15px #81b4b4, 0 0 20px #81b4b4;
+      }
+    }
+    @media (max-width:1920px){
+      .label-socre{
+      width: 15.8rem;
+      height: 10rem;
+      }
+    .score{
+      top:25%;
+      font-size: 4rem;
+      letter-spacing: 10px;
+
+      }
+      #score{
+        font-size: 5rem;
+        top:145%
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- <div class="letters neon">A</div> -->
+  <div class="container" id="container">
+    
+    <div class="top">
+      
+      <!-- 剩餘時間bar -->
+      <div class="time">
+        <div class="text1">TIME</div>
+        <div id="progress">
+          <div id="bar"></div>
+        </div>
+      </div>
+      <div class="table">
+        <table id="rank">
+          <tr>
+            <th colspan="2" class="rank">Rnak</th>
+          </tr>
+          
+        </table>
+      </div>
+      <div class="game"></div>
+      <div class="label">
+      </div>
+      <div class="label">
+      </div>
+      
+    </div>
+    <div class="bottom" >
+      
+      <button id="start" onclick="game_start()"><span class="text">START</span>   
+      </button>
+      <div class="label-socre">
+        <span class="text score">score<span id="score" class="text">0</span></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    let time = $('#time')
+    let score = 0
+    let timer = 0
+    let timer1 = 10
+    let process = 0
+    let dowm = 0
+    let user = []
+    let bar = parseInt($("#bar").css('width'))//1200
+    const bar1 = bar
+    const rank = {score:0,name:'123'}
+    const audio = new Audio()
+    function creatLetters(){
+      // console.log('start');
+      timer=window.setInterval(function(){
+      // 0-25 隨機整數
+      let randomLetter = Math.round(Math.random() * 25)
+      let letter = $(`<div class="letters neon">${letters[randomLetter]}</div>`)
+      // console.log(letter)
+      // 在隨機的位置出現TOP 200-1200
+        let randomWidth = Math.round(Math.random() * 50 + 20)
+      letter.css({
+        "top":"100px",
+        "left": randomWidth + '%'
+      })    
+      // 隨機產生字母
+      $('.game').append(letter)
+      },500)
+    }
+    function downLetter (){
+      down = window.setInterval(function(){
+        words = $('.game').children();
+        for(i=0;i<words.length;i++){
+          let word = $(words[i]);
+          let top = word.css('top')
+          top = parseInt(top) + 40
+          word.css({
+            "top":top+"px"
+          })
+          height=$(window).height()-100
+          if(top > height){
+            $('.letters').eq(i).remove()
+          }
+          // console.log('top',top);
+        }
+      },100)
+    }
+    document.onkeydown = event =>{
+      const key = event.key.toUpperCase()
+      // console.log(key.toUpperCase());
+      words = $('.game').children();
+      for(i=0;i<words.length;i++){
+        // 取得掉落文字
+        let word = $(words[i])
+        if(word.text() === key){
+          score++
+          $('#score').text(score)
+          $('.letters').eq(i).remove()
+        }
+      }
+    }
+    function game_start(){
+      start.disabled = true
+      timer = 10
+      time.text(timer)
+      score = 0
+      let temp = parseInt(time.text()) 
+      timer1=window.setInterval(function(){
+        temp = temp - 1
+        time.text(temp)
+      },1000)
+      process = window.setInterval(function () {
+        // console.log(bar1);
+        bar = bar - 0.0101 * bar1
+        $('#bar').css({
+          "width": bar + "px"
+        })
+      }, 100)
+      creatLetters()
+      downLetter()
+      setTimeout(end, 10 * 1000)
+    }
+    function end(){
+      // console.log('end');
+      $('.letters').remove()
+
+      start.disabled = false
+      clearInterval(timer)
+      clearInterval(timer1)
+      clearInterval(process)
+      clearInterval(down)
+      alert(`結束遊戲，恭喜您得到${score}分`)
+      $('#bar').css({
+        "width": "100%"
+      })
+      audio.src = './yay.mp3'
+      const input = prompt('請輸入名字')
+      console.log(input);
+      if (!input){
+        $('.remove').remove()
+        ranking()
+      }else{
+        audio.play()
+        rank.score = score
+        rank.name = input
+        // 寫入資料
+        localStorage.setItem(rank.name, JSON.stringify(rank))
+        // 排序分數如果前五名則yaya 沒有就prompt 再加油!!!
+        // 取出localStorage資料進行排序
+        // 加一筆新增的到rank 裡面
+        // console.log('localStorage.length', localStorage.length);
+        $('.remove').remove()
+        ranking()
+      }
+      
+    }
+    // }
+    // 取出localStorage資料進行排序
+    // 把ranking 分成取資料, 排序, 顯示資料
+    function ranking(){
+      //取得資料
+      bar = parseInt($("#bar").css('width'))
+      let user = []
+      let data = []
+      for (let i = 0; i < localStorage.length; i++) {
+        user.push(localStorage.key(i))
+      }
+      user = JSON.stringify(user).split('[').join('').split(']').join('').split(',').join('').split('"')
+      // console.log(user);
+      for(let i = 0 ; i < user.length ; i++){
+        if(i%2!==0){
+          // 取 1 3 5 7... (odd)
+          // 取得localStorage 的 score
+          let score = JSON.parse(localStorage.getItem(user[i]))
+          // console.log(score);
+          data.push(score)
+          // score.sort(function(a,b){
+          //   return a.score - b.score
+          // })
+        }
+      }
+      // console.log('data',data);
+      for(let i = 0 ; i < localStorage.length; i++ ){
+        data.sort(function(a,b){
+          return b.score - a.score
+        })
+      }
+      // console.log(data);
+      if(localStorage.length >= 5 ){
+        for (let i = 0 ; i<5;i++){
+          // console.log(typeof data[i].name);
+          let rank = $(`<tr class='remove'><td>${data[i].name}</td><td>${data[i].score}</td></tr>`)
+          $('#rank').append(rank)
+        }
+      }else{
+        for (let i = 0; i < localStorage.length; i++) {
+          // console.log(typeof data[i].name);
+          let rank = $(`<tr class='remove'><td>${data[i].name}</td><td>${data[i].score}</td></tr>`)
+          $('#rank').append(rank)
+        }
+      }
+    }
+    ranking()
+    
+
+    
+  </script>
+</body>
+</html>
